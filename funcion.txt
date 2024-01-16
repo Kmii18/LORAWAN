@@ -1,0 +1,15 @@
+function Decoder(bytes, port) {
+  var decoded = {};
+  
+  // Convert bytes to a string
+  var str = String.fromCharCode.apply(null, bytes);
+
+  // Split the string by the space character to separate the values
+  var values = str.split('@');
+
+  // Parse the humidity and temperature values from the string
+  decoded.humidity = parseFloat(values[0]);
+  decoded.temperature = parseFloat(values[1]);
+
+  return decoded;
+}
